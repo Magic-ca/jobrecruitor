@@ -14,7 +14,7 @@ const Job = () => {
     try {
       const jobs = JSON.parse(localStorage.getItem(jobsKey));
       const jobNextId = JSON.parse(localStorage.getItem(jobNextIdKey));
-      if (jobs && jobs.length > 0) {
+      if ((jobs && jobs.length > 0) || jobNextId > 1) {
         dispatch({ type: "set", jobs: jobs, jobNextId: jobNextId });
       }
     } catch (error) {
