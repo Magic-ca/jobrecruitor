@@ -10,7 +10,7 @@ const JobContext = createContext();
 const Job = () => {
   const [{ jobNextId, jobs }, dispatch] = useReducer(jobReducer, initialState);
 
-  const getJobStateFromStorage = (jobsKey, jobNextIdKey) => {
+  const loadJobStateFromStorage = (jobsKey, jobNextIdKey) => {
     try {
       const jobs = JSON.parse(localStorage.getItem(jobsKey));
       const jobNextId = JSON.parse(localStorage.getItem(jobNextIdKey));
@@ -22,17 +22,17 @@ const Job = () => {
     }
   }
 
-  const setJobStateToStorage = (jobs, jobNextId) => {
+  const saveJobStateToStorage = (jobs, jobNextId) => {
     localStorage.setItem('jobs', JSON.stringify(jobs));
     localStorage.setItem('jobId', JSON.stringify(jobNextId));
   }
 
   useEffect(() => {
-    getJobStateFromStorage('jobs', 'jobNextId');
+    loadJobStateFromStorage('jobs', 'jobNextId');
   }, []);
 
   useEffect(() => {
-    setJobStateToStorage(jobs, jobNextId);
+    saveJobStateToStorage(jobs, jobNextId);
   }, [jobs, jobNextId])
 
   return (
