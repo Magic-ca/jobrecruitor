@@ -1,0 +1,65 @@
+.mail-box {
+  /* background-image: url(../../../public/assets/img/1.png); */
+  position: relative;
+}
+.mail-box-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px #6a0532 solid;
+  border-radius: 10px;
+}
+.signup-by-mail {
+  background-color: #2b0022;
+  border: #2b0022;
+  font-size: 32px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+.signup-by-mail:hover,
+.signup-by-mail:focus {
+  background-color: #2b0022;
+  border: #2b0022;
+}
+/* footer */
+.mail-box-footer {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.soc-link {
+  padding: 20px 35px;
+}
+.soc-link a {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
+.soc-link .fa {
+  margin-right: 10px;
+}
+.soc-link .fa-twitter {
+  font-size: 30px;
+}
+.m-twitter {
+  color: #4099fe;
+}
+.m-facebook {
+  color: #3a5997;
+}
+.m-comment {
+  color: #ffad0e;
+}
+
+.close-btn {
+  background-color: transparent;
+  color: #6a0532;
+  border: none;
+  font-size: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}

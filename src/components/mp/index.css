@@ -1,0 +1,38 @@
+.mp {
+  position: relative;
+  background-color: #fde34e;
+}
+.logo {
+  letter-spacing: -24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: black;
+  color: white;
+  font-size: 92px;
+  font-weight: bold;
+  line-height: 1;
+  /* padding: 0 35px 10px 10px; */
+  max-width: 150px;
+}
+.link-sec {
+  width: fit-content;
+  display: inline-block;
+  margin: auto;
+}
+.link-sec > a {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  position: relative;
+  padding-right: 50px;
+}
+.link-sec > p {
+  margin-top: 10px;
+}
+.link-sec > .material-icons {
+  position: absolute;
+  font-size: 32px;
+  margin-left: 8px;
+}
