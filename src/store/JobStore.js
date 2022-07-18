@@ -27,6 +27,7 @@ export const jobReducer = (state, action) => {
     }
     case "start": {
       return {
+        ...state,
         jobs: state.jobs.map((job) => {
           return job.id === action.id ? { ...job, status: 1 } : job;
         })
@@ -34,6 +35,7 @@ export const jobReducer = (state, action) => {
     }
     case "stop": {
       return {
+        ...state,
         jobs: state.jobs.map((job) => {
           return job.id === action.id
             ? { ...job, status: 2, updatedAt: Date.now() }
