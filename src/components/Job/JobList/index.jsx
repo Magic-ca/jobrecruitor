@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 import JobItem from "../JobItem";
 
 const JobList = ({ jobs }) => {
+  console.log(jobs);
   return (
     <Table className="table-sort table-arrows remember-sort mt-5">
       <thead>

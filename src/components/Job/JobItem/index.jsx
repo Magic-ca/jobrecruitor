@@ -3,7 +3,17 @@ import { useContext } from "react";
 import { JobContext } from "../../../pages/job";
 
 const JobItem = ({ data }) => {
-  const { startJob, endJob, removeJob } = useContext(JobContext);
+  const { dispatch } = useContext(JobContext);
+
+  const startJob = (id) => {
+    dispatch({ type: "start", id: id });
+  }
+  const endJob = (id) => {
+    dispatch({ type: "stop", id: id });
+  }
+  const removeJob = (id) => {
+    dispatch({ type: "remove", id: id });
+  }
 
   const getStrStaus = (status) => {
     if (status === 0) {
