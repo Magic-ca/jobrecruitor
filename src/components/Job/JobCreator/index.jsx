@@ -5,8 +5,7 @@ import "./index.css";
 
 const JobCreator = ({ jobNextId }) => {
   const { dispatch } = useContext(JobContext);
-
-  const [newJob, setNewJob] = useState({ id: jobNextId, title: "", client: "", hourly: 50 });
+  const [newJob, setNewJob] = useState({ title: "", client: "", hourly: 50 });
 
   const inputTitle = useRef();
 
@@ -16,7 +15,8 @@ const JobCreator = ({ jobNextId }) => {
 
   const createNewJob = (e) => {
     e.preventDefault();
-    dispatch({ type: "add", newJob: newJob });
+    console.log(jobNextId);
+    dispatch({ type: "add", newJob: { ...newJob, id: jobNextId } });
     setNewJob({ id: jobNextId, title: "", client: "", hourly: 50 })
   }
 

@@ -24,7 +24,7 @@ const Job = () => {
 
   const saveJobStateToStorage = (jobs, jobNextId) => {
     localStorage.setItem('jobs', JSON.stringify(jobs));
-    localStorage.setItem('jobId', JSON.stringify(jobNextId));
+    localStorage.setItem('jobNextId', JSON.stringify(jobNextId));
   }
 
   useEffect(() => {
