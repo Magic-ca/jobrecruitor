@@ -10,17 +10,29 @@ const JobContext = createContext();
 const Job = () => {
   const [{ jobNextId, jobs }, dispatch] = useReducer(jobReducer, initialState);
 
-  useEffect(() => {
-    const jobs = JSON.parse(localStorage.getItem('jobs'));
-    const jobNextId = JSON.parse(localStorage.getItem('jobNextId'));
-    if (jobs && jobs.length > 0) {
-      dispatch({ type: "set", jobs: jobs, jobNextId: jobNextId });
+  const getJobStateFromStorage = (jobsKey, jobNextIdKey) => {
+    try {
+      const jobs = JSON.parse(localStorage.getItem(jobsKey));
+      const jobNextId = JSON.parse(localStorage.getItem(jobNextIdKey));
+      if (jobs && jobs.length > 0) {
+        dispatch({ type: "set", jobs: jobs, jobNextId: jobNextId });
+      }
+    } catch (error) {
+      throw new Error('LocalStorage Error', error);
     }
+  }
+
+  const setJobStateToStorage = (jobs, jobNextId) => {
+    localStorage.setItem('jobs', JSON.stringify(jobs));
+    localStorage.setItem('jobId', JSON.stringify(jobNextId));
+  }
+
+  useEffect(() => {
+    getJobStateFromStorage('jobs', 'jobNextId');
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('jobs', JSON.stringify(jobs));
-    localStorage.setItem('jobId', JSON.stringify(jobNextId));
+    setJobStateToStorage(jobs, jobNextId);
   }, [jobs, jobNextId])
 
   return (
