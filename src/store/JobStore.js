@@ -1,12 +1,19 @@
-export const initialState = [];
+export const initialState = {
+  jobNextId: 1,
+  jobs: []
+};
 
 export const jobReducer = (state, action) => {
   switch (action.type) {
     case "set": {
-      return [...state.jobs];
+      return {
+        jobNextId: action.jobNextId,
+        jobs: [...action.jobs]
+      };
     }
     case "add": {
       return {
+        jobNextId: state.jobNextId + 1,
         jobs: [
           ...state.jobs,
           {

@@ -3,7 +3,7 @@ import { Form, FormControl, FormGroup, Button } from 'react-bootstrap';
 import { JobContext } from '../../../pages/job';
 import "./index.css";
 
-const JobCreator = ({ jobNextId, setJobNextId }) => {
+const JobCreator = ({ jobNextId }) => {
   const { dispatch } = useContext(JobContext);
 
   const [newJob, setNewJob] = useState({ id: jobNextId, title: "", client: "", hourly: 50 });
@@ -17,7 +17,6 @@ const JobCreator = ({ jobNextId, setJobNextId }) => {
   const createNewJob = (e) => {
     e.preventDefault();
     dispatch({ type: "add", newJob: newJob });
-    setJobNextId(++jobNextId);
     setNewJob({ id: jobNextId, title: "", client: "", hourly: 50 })
   }
 
